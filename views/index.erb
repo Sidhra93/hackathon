@@ -1,12 +1,21 @@
-<h1>Nearby car results</h1>
+<div class="search-form container-fluid">
+  <form action="/" method="post">
+    <div class="form-group">
+      <label for="search-carspots">Search for Carspots</label>
+      <input type="text" class="form-control" name="search">
+      <button type="submit" class="btn btn-primary">Search</button>
+    </div>
+  </form>
+</div>
+
 <div id="map"></div>
 
 <script>
 
 function initMap() {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 3,
-    center: {lat: -28.024, lng: 140.887}
+    zoom: 11,
+    center: {lat: -37.8136, lng: 144.9631}
   });
 
   var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -20,7 +29,6 @@ function initMap() {
 
   var markerCluster = new MarkerClusterer(map, markers,
     {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-
   }
 
   var locations = [];
@@ -32,9 +40,9 @@ function initMap() {
       locations.push({lat: parseFloat(latitude), lng: parseFloat(longitude)});
     }
   });
-  </script>
-  <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
-  </script>
-  <script async defer
-  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ63rTQob19owHv4jyFA63zJ4DPgEczTw&callback=initMap">
-  </script>
+</script>
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+</script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ63rTQob19owHv4jyFA63zJ4DPgEczTw&callback=initMap">
+</script>
