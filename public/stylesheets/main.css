@@ -1,0 +1,30 @@
+body {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+header {
+
+}
+
+.heading {
+  text-align: center;
+}
+
+.search-form {
+  text-align: center;
+  width: 50%;
+}
+
+.btn-primary {
+  margin-top: 10px;
+}
+
+#map {
+  height: 400px;
+  width: 100%;
+}
+
+footer {
+
+}
