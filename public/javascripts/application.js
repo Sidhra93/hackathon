@@ -13,6 +13,7 @@ function initMap() {
     map: map,
     position: {lat: -37.815031, lng: 144.967005}
   });
+
   var markers = locations.map(function(location, i) {
     return new google.maps.Marker({
       position: location,
@@ -56,6 +57,7 @@ function initMap() {
     map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude})
     map.setZoom(zoomLevel);
 
+    centerMarker.setMap(null);
     centerMarker = new google.maps.Marker({
       map: map,
       position: {lat: position.coords.latitude, lng: position.coords.longitude}
@@ -82,6 +84,7 @@ function initMap() {
         map.setCenter(place.geometry.location);
         map.setZoom(zoomLevel);
 
+        centerMarker.setMap(null);
         centerMarker = new google.maps.Marker({
           map: map,
           position: place.geometry.location
