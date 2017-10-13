@@ -1,12 +1,17 @@
 body {
   margin: 0 auto;
-  max-width: 1200px;
+  /*max-width: 1200px;*/
+}
+
+h3 {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
 }
 
 header {
-  background: #343a40;
+  background: #e20c2c;
   color: #fff;
-  padding: 25px 20px;
+  padding: 10px 20px;
 }
 
 #map {
@@ -14,11 +19,7 @@ header {
   width: 100%;
 }
 
-.location-find{
-  padding: 20px;
-}
-
 footer {
-  background: #343a40;
+  background: #e20c2c;
   color: #fff;
 }

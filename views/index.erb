@@ -1,10 +1,12 @@
-<div class="container-fluid location-find">
-  <div class="row">
-    <div class="col">
-      <input id="search" class="form-control" type="text" name="" value="">
+<div class="container-fluid">
+  <div class="mdl-grid">
+    <div class="mdl-cell mdl-cell--3-col mdl-cell--3-col-phone">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input id="search" class="mdl-textfield__input" type="text" id="sample3" placeholder="Where are you headed?">
+      </div>
     </div>
-    <div class="col">
-      <button id="find" class="btn btn-primary" type="button" onclick="getLocation()">Location</button>
+    <div class="mdl-cell mdl-cell--2-col mdl-cell--1-col-phone">
+      <button id="find" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" type="button" onclick="getLocation()"><i class="material-icons">my_location</i></button>
     </div>
   </div>
 </div>
@@ -16,80 +18,7 @@
 src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDQ63rTQob19owHv4jyFA63zJ4DPgEczTw&callback=initMap&libraries=places">
 </script>
 <script>
-var map;
-var zoomLevel = 17;
-var centerMarker;
-
-function initMap() {
-    initAutoComplete();
-    map = new google.maps.Map(document.getElementById('map'), {
-    zoom: zoomLevel,
-    center: {lat: -37.815031, lng: 144.967005} ,
-  });
-  centerMarker = new google.maps.Marker({
-          map: map,
-          position: {lat: -37.815031, lng: 144.967005}
-        });
-  var markers = locations.map(function(location, i) {
-    return new google.maps.Marker({
-      position: location,
-      icon: "https://maps.google.com/mapfiles/kml/shapes/parking_lot_maps.png"
-    });
-  });
-
-  var markerCluster = new MarkerClusterer(map, markers,
-    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-
-  }
-
-  var locations = [];
   var carSpots = <%= @search_carspots.to_json %>
-  carSpots.forEach(function(carspot){
-    var latitude = carspot.lat
-    var longitude = carspot.lon
-    locations.push({lat: parseFloat(latitude), lng: parseFloat(longitude)});
-  });
-
-  function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    }
-}
-
-function showPosition(position) {
-   map.setCenter({lat: position.coords.latitude, lng: position.coords.longitude})
-   map.setZoom(zoomLevel);
-
-   centerMarker = new google.maps.Marker({
-           map: map,
-           position: {lat: position.coords.latitude, lng: position.coords.longitude}
-         });
-}
-
-function initAutoComplete(){
-  var defaultBounds = new google.maps.LatLngBounds(
-    new google.maps.LatLng(-37.785314, 145.033092),
-    new google.maps.LatLng(-37.862693, 144.881693));
-
-    var input = document.getElementById('search');
-    var options = {
-      bounds: defaultBounds,
-      types: ['address']
-    };
-
-    autocomplete = new google.maps.places.Autocomplete(input, options);
-
-    autocomplete.addListener('place_changed', function(){
-      var place = autocomplete.getPlace();
-      map.setCenter(place.geometry.location);
-      map.setZoom(zoomLevel);
-
-      centerMarker = new google.maps.Marker({
-              map: map,
-              position: place.geometry.location
-            });
-    });
-}
-
-
-  </script>
+</script>
+<script src="/javascripts/application.js">
+</script>
