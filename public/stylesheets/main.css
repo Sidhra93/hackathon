@@ -1,0 +1,24 @@
+body {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+header {
+  background: #343a40;
+  color: #fff;
+  padding: 25px 20px;
+}
+
+#map {
+  height: 600px;
+  width: 100%;
+}
+
+.location-find{
+  padding: 20px;
+}
+
+footer {
+  background: #343a40;
+  color: #fff;
+}
